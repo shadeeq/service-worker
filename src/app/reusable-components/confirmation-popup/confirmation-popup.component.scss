@@ -1,0 +1,9 @@
+.popup-container{
+  display: flex;
+  flex-direction: column;
+
+  .buttons-container{
+    display: flex;
+    justify-content: space-evenly;
+  }
+}

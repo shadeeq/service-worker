@@ -1,0 +1,14 @@
+.sidebar-container{
+  ul{
+    list-style-type: none;
+
+    li{
+      cursor: pointer;
+      margin-bottom: 10px;
+    }
+
+    li:hover{
+      font-weight: 500;
+    }
+  }
+}

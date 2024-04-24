@@ -1,0 +1,13 @@
+<div class="item-info-container">
+
+  @if (item){
+    <div class="item">
+      <p>ID: <span>{{ item.id }}</span> </p>
+      <p>Order: <span>{{ item.order }}</span> </p>
+      <p>Name: <span>{{ item.name }}</span></p>
+      <app-confirm-button></app-confirm-button>
+    </div>
+  } @else {
+    <p class="info">No item provided</p>
+  }
+</div>
