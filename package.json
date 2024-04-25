@@ -7,7 +7,8 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "showPopups": "ng serve --configuration=showPopups"
+    "showPopups": "ng build --configuration=showPopups && http-server -p 8080 -c-1 dist/service-worker/browser",
+    "noPopups": "ng build --configuration=production && http-server -p 8080 -c-1 dist/service-worker/browser"
   },
   "private": true,
   "dependencies": {

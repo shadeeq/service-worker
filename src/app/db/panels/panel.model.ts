@@ -1,6 +1,6 @@
 export interface Panel {
   id: string;
   order: number;
-  show: boolean;
+  show: number;
   name: string;
 }

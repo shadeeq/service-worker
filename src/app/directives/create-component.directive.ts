@@ -5,7 +5,7 @@ import {
   OnInit,
   ViewContainerRef
 } from '@angular/core';
-import { Panel } from "../models/panel.model";
+import { Panel } from "../db/panels/panel.model";
 import { COMPONENTS_LIST_MAP } from "../constants/components-list";
 
 @Directive({

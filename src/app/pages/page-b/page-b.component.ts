@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 import { ItemContentComponent } from "../../reusable-components/item-content/item-content.component";
 import { AsyncPipe } from "@angular/common";
-import { DataService } from "../../services/data.service";
-import {switchMap} from "rxjs";
-import {ActivatedRoute} from "@angular/router";
+import { PanelsService } from "../../services/panels.service";
+import { switchMap } from "rxjs";
+import { ActivatedRoute } from "@angular/router";
 
 @Component({
   selector: 'app-page-b',
@@ -20,6 +20,5 @@ export class PageBComponent {
     switchMap(() => this.dataService.getPanelById('2'))
   );
 
-  constructor(private readonly dataService: DataService, private readonly route: ActivatedRoute) {
-  }
+  constructor(private readonly dataService: PanelsService, private readonly route: ActivatedRoute) {}
 }

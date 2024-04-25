@@ -1,10 +1,10 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { DataService } from "../../services/data.service";
-import { map } from "rxjs";
+import { PanelsService } from "../../services/panels.service";
 import { RouterLink } from "@angular/router";
 import { AsyncPipe } from "@angular/common";
-import { Panel } from "../../models/panel.model";
 import { CreateComponentDirective } from "../../directives/create-component.directive";
+import { Observable } from "rxjs";
+import { Panel } from "../../db/panels/panel.model";
 
 @Component({
   selector: 'app-sidebar',
@@ -19,10 +19,7 @@ import { CreateComponentDirective } from "../../directives/create-component.dire
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SidebarComponent {
+  menuItems$ = (this.panelsService.getAll() as unknown as Observable<Panel[]>);
 
-  menuItems$ = this.dataService.getPanels().pipe(
-    map((items: Panel[]) => items.sort((a, b) => a.order - b.order).filter(item => item.show))
-  )
-
-  constructor(private readonly dataService: DataService,) {}
+  constructor(private readonly panelsService: PanelsService) {}
 }

@@ -24,8 +24,7 @@
               "src/favicon.ico",
               "src/assets",
               "src/manifest.webmanifest",
-              "src/app/serviceWorker/show-popups-service-worker.js",
-              "src/manifest.webmanifest"
+              "src/app/serviceWorker/show-popups-service-worker.js"
             ],
             "styles": [
               "@angular/material/prebuilt-themes/indigo-pink.css",
@@ -100,7 +99,6 @@
             "assets": [
               "src/favicon.ico",
               "src/assets",
-              "src/manifest.webmanifest",
               "src/manifest.webmanifest"
             ],
             "styles": [

@@ -15,18 +15,22 @@ export class SwService {
   ) {}
 
   checkForUpdate(): void {
-    console.log('checkForUpdate');
+    console.log('checkForUpdate', this.swUpdate);
     if (this.swUpdate.isEnabled) {
       console.log('checkin for update')
       this.swUpdate.versionUpdates.pipe(
         tap(r => {
-          console.log(r)
+          console.log('UPDATES:', r)
         }),
         concatMap(update => {
           console.log('UPDATE TYPE', update.type);
           switch (update.type) {
             case "VERSION_DETECTED":
+              console.log('VERSION_DETECTED')
+              return EMPTY
+            case "VERSION_READY":
               if (environment.showPopups) {
+                console.log('SHOW_POPUPS')
                 return this.popupService.showUpdateConfirmationPopup().pipe(tap((r) => {
                   if (r) {
                     this.updateSw();
@@ -37,9 +41,6 @@ export class SwService {
                 this.updateSw();
                 return EMPTY;
               }
-            case "VERSION_READY":
-              console.log('new version installed')
-              return EMPTY;
             case "VERSION_INSTALLATION_FAILED":
               console.warn('Error while installing update, cache will be cleared and page reloaded');
               console.error(update.error);
@@ -55,15 +56,10 @@ export class SwService {
   }
 
   updateSw(): void {
-    console.log('updateSw');
+    console.log('UPDATE SW');
     this.swUpdate.activateUpdate()
       .then(() => document.location.reload())
       .catch((error) => console.error(error));
     console.log('new version enabled, trying to install')
   }
 }
-
-
-/**
- * find docs and proper event for installed version
- */
