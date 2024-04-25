@@ -27,4 +27,14 @@ export class PopupService {
     }
 
   }
+
+  showUpdateConfirmationPopup() {
+    console.log('showUpdateConfirmationPopup');
+    const dialogRef = this.dialog.open(ConfirmationPopupComponent,
+      {
+        height: '100px',
+        width: '200px',
+      })
+    return dialogRef.afterClosed()
+  }
 }

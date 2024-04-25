@@ -18,6 +18,6 @@ export class ConfirmationPopupComponent {
   }
 
   onClick(event: boolean){
-    this.dialogRef.close(event)
+    this.dialogRef.close(event);
   }
 }
