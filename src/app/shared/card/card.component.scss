@@ -1,0 +1,29 @@
+.panel-container{
+  min-width: 500px;
+  border: 1px solid grey;
+  border-radius: 2px;
+
+  .title-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    box-sizing: border-box;
+    border-bottom: 2px solid;
+    border-bottom-color: var(--card-color);
+
+    .title {
+      span {
+        font-size: 18px;
+        margin-left: 10px;
+      }
+      display: flex;
+      align-items: center;
+    }
+  }
+
+  .data-container {
+    box-sizing: border-box;
+    padding: 10px;
+  }
+}

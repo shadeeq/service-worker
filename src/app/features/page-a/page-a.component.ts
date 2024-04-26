@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { ItemContentComponent } from "../../reusable-components/item-content/item-content.component";
-import { PanelsService } from "../../services/panels.service";
+import { ItemContentComponent } from "../../shared/item-content/item-content.component";
+import { PanelsService } from "../../core/services/panels.service";
 import { AsyncPipe } from "@angular/common";
 import { ActivatedRoute } from "@angular/router";
 import { switchMap } from "rxjs";

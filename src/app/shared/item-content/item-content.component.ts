@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core'
-import { Panel } from "../../db/panels/panel.model";
+import { Panel } from "../../core/db/panels/panel.model";
 import {ConfirmButtonComponent} from "../confirm-button/confirm-button.component";
 
 @Component({

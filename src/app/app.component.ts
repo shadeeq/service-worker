@@ -1,7 +1,6 @@
-import { Component, OnInit} from '@angular/core';
+import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { LayoutComponent } from "./pages/layout/layout.component";
-import { SwService } from "./services/sw.service";
+import { LayoutComponent } from "./features/layout/layout.component";
 
 @Component({
   selector: 'app-root',
@@ -10,16 +9,6 @@ import { SwService } from "./services/sw.service";
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
-export class AppComponent implements OnInit {
+export class AppComponent  {
   title = 'sidebar-worker';
-
-  constructor(
-    private readonly swService: SwService,
-  ) {
-  }
-
-  ngOnInit(): void {
-    this.swService.checkForUpdate();
-  }
-
 }

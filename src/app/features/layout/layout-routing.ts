@@ -11,15 +11,15 @@ export const routes: Routes = [
       },
       // {
       //   path: 'a',
-      //   loadComponent: () => import('../../pages/page-a/page-a.component').then((c) => c.PageAComponent)
+      //   loadComponent: () => import('../../features/page-a/page-a.component').then((c) => c.PageAComponent)
       // },
       // {
       //   path: 'b',
-      //   loadComponent: () => import('../../pages/page-b/page-b.component').then((c) => c.PageBComponent)
+      //   loadComponent: () => import('../../features/page-b/page-b.component').then((c) => c.PageBComponent)
       // },
       // {
       //   path: 'c',
-      //   loadComponent: () => import('../../pages/page-c/page-c.component').then((c) => c.PageCComponent)
+      //   loadComponent: () => import('../../features/page-c/page-c.component').then((c) => c.PageCComponent)
       // }
     ]
   }

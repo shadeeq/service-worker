@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { SwUpdate } from "@angular/service-worker";
 import { PopupService } from "./popup.service";
 import { concatMap, EMPTY, tap } from "rxjs";
-import { environment } from "../../environments/environment";
+import { environment } from "../../../environments/environment";
 
 @Injectable({
   providedIn: 'root'

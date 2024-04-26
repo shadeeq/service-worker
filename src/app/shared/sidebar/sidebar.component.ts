@@ -1,10 +1,10 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { PanelsService } from "../../services/panels.service";
+import { PanelsService } from "../../core/services/panels.service";
 import { RouterLink } from "@angular/router";
 import { AsyncPipe } from "@angular/common";
-import { CreateComponentDirective } from "../../directives/create-component.directive";
+import { CreateComponentDirective } from "../../core/directives/create-component.directive";
 import { Observable } from "rxjs";
-import { Panel } from "../../db/panels/panel.model";
+import { Panel } from "../../core/db/panels/panel.model";
 
 @Component({
   selector: 'app-sidebar',

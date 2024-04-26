@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { MatDialog } from "@angular/material/dialog";
-import { environment } from "../../environments/environment";
-import { ConfirmationPopupComponent } from "../reusable-components/confirmation-popup/confirmation-popup.component";
+import { environment } from "../../../environments/environment";
+import { ConfirmationPopupComponent } from "../../shared/confirmation-popup/confirmation-popup.component";
 
 @Injectable({
   providedIn: 'root'

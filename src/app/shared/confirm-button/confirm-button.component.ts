@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { PopupService } from "../../services/popup.service";
+import { PopupService } from "../../core/services/popup.service";
 import { MatButton } from "@angular/material/button";
 
 @Component({
