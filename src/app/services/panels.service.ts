@@ -42,7 +42,7 @@ export class PanelsService {
 
   fetchPanels() {
     of(this.panels).subscribe(panels=> {
-      panelsDb.panels.bulkAdd(panels);
+      panelsDb.panels.bulkPut(panels);
     });
   }
 
