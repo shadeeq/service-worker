@@ -4,6 +4,7 @@ import { AsyncPipe } from "@angular/common";
 import {
   CardComponent,
 } from "../../shared/card/card.component";
+import { FullCalendarComponent } from "../../reusable-components/full-calendar/full-calendar.component";
 
 @Component({
   selector: 'app-main',
@@ -12,6 +13,7 @@ import {
     SidebarComponent,
     AsyncPipe,
     CardComponent,
+    FullCalendarComponent,
   ],
   templateUrl: './main.component.html',
   styleUrl: './main.component.scss',
