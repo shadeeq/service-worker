@@ -3,8 +3,7 @@ import { PanelsService } from "../../core/services/panels.service";
 import { RouterLink } from "@angular/router";
 import { AsyncPipe } from "@angular/common";
 import { CreateComponentDirective } from "../../core/directives/create-component.directive";
-import { Observable } from "rxjs";
-import { Panel } from "../../core/db/panels/panel.model";
+import { from } from "rxjs";
 
 @Component({
   selector: 'app-sidebar',
@@ -19,7 +18,7 @@ import { Panel } from "../../core/db/panels/panel.model";
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SidebarComponent {
-  menuItems$ = (this.panelsService.getAll() as unknown as Observable<Panel[]>);
+  menuItems$ = from(this.panelsService.getAll());
 
   constructor(private readonly panelsService: PanelsService) {}
 }

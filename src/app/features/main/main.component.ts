@@ -1,10 +1,10 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { SidebarComponent } from "../../shared/sidebar/sidebar.component";
+import { SidebarComponent } from "../sidebar/sidebar.component";
 import { AsyncPipe } from "@angular/common";
 import {
   CardComponent,
 } from "../../shared/card/card.component";
-import { FullCalendarComponent } from "../../reusable-components/full-calendar/full-calendar.component";
+import { FullCalendarComponent } from "../../shared/full-calendar/full-calendar.component";
 
 @Component({
   selector: 'app-main',
