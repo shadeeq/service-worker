@@ -54,7 +54,7 @@ export class FullCalendarComponent {
     calendarApi.unselect();
 
     if (title) {
-      const event = {
+      const event: EventInput = {
         id: new Date().getTime().toString(),
         title,
         start: selectInfo.startStr,
