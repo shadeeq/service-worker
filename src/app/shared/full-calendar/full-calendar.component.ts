@@ -25,7 +25,7 @@ export class FullCalendarComponent {
 
   constructor(
     private changeDetector: ChangeDetectorRef,
-    private readonly calendarService: CalendarService
+    private readonly calendarService: CalendarService,
   ) {}
 
   setupCalendar(events: EventInput): CalendarOptions {
@@ -43,7 +43,7 @@ export class FullCalendarComponent {
       dayMaxEvents: true,
       select: this.handleDateSelect.bind(this),
       eventClick: this.handleEventClick.bind(this),
-      eventsSet: this.handleEvents.bind(this)
+      eventsSet: this.handleEvents.bind(this),
     }
   }
 
@@ -62,7 +62,7 @@ export class FullCalendarComponent {
         allDay: selectInfo.allDay,
       }
       calendarApi.addEvent(event);
-      this.calendarService.addCalendarEvent(event)
+      this.calendarService.addCalendarEvent(event);
     }
   }
 

@@ -1,0 +1,109 @@
+$spacer: 1rem;
+
+.d-flex {
+  display: flex;
+}
+
+.mr {
+  margin-right: $spacer !important;
+}
+
+.mr-2 {
+  margin-right: ($spacer * 0.5) !important;
+}
+
+.mr-4 {
+  margin-right: ($spacer * 0.25) !important;
+}
+
+.ml {
+  margin-left: $spacer !important;
+}
+
+.ml-2 {
+  margin-left: ($spacer * 0.5) !important;
+}
+
+.ml-4 {
+  margin-left: ($spacer * 0.25) !important;
+}
+
+.m {
+  margin: $spacer !important;
+}
+
+.m-2 {
+  margin: ($spacer * 0.5) !important;
+}
+
+.m-4 {
+  margin: ($spacer * 0.25) !important;
+}
+
+.p {
+  padding: $spacer !important;
+}
+
+.p-2 {
+  padding: ($spacer * 0.5) !important;
+}
+
+.p-4 {
+  padding: ($spacer * 0.25) !important;
+}
+
+.justify-content-end {
+  justify-content: flex-end;
+}
+
+.justify-content-between {
+  justify-content: space-between;
+}
+
+.justify-content-center {
+  justify-content: center;
+}
+
+.justify-content-start {
+  justify-content: flex-start;
+}
+
+.align-items-center {
+  align-items: center;
+}
+
+.flex-2 {
+  flex: 2;
+}
+
+.flex-1 {
+  flex: 1;
+}
+
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
+.clickable {
+  cursor: pointer;
+}
+
+.h-full {
+  height: 100%;
+}
+
+.events-none {
+  pointer-events: none;
+}
+
+.d-block {
+  display: block;
+}
+
+.w-fit {
+  width: fit-content;
+}
+
+.fw-bold {
+  font-weight: bold;
+}

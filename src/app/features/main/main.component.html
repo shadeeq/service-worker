@@ -1,16 +1,9 @@
 <p>VERSION: {{version}}</p>
-<app-full-calendar></app-full-calendar>
-<app-card
-  [title]="panelTitle"
-  [titleIcon]="icon"
-  [cardColor]="'green'"
->
-  <div actions>
-    <button>action1</button>
-    <button>action2</button>
-  </div>
 
-  <div body>
-    <div>Hello world</div>
-  </div>
-</app-card>
+@for (demoPage of demoPages; track demoPage) {
+  <button [routerLink]="demoPage">{{ demoPage }}</button>
+}
+<div class="p">
+  <router-outlet></router-outlet>
+</div>
+

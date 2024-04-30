@@ -7,22 +7,26 @@ export const routes: Routes = [
     children: [
       {
         path: '',
-        loadComponent: () => import('../main/main.component').then(c => c.MainComponent)
+        loadComponent: () => import('../main/main.component').then(c => c.MainComponent),
+        children: [
+          {
+            path: 'seatmap',
+            loadComponent: () => import('../demo/seatmap-demo/seatmap-demo.component').then(c => c.SeatmapDemoComponent),
+          },
+          {
+            path: 'panels',
+            loadComponent: () => import('../demo/panels-demo/panels-demo.component').then(c => c.PanelsDemoComponent),
+          },
+          {
+            path: 'calendar',
+            loadComponent: () => import('../demo/calendar-demo/calendar-demo.component').then(c => c.CalendarDemoComponent),
+          },
+          {
+            path: 'card',
+            loadComponent: () => import('../demo/card-demo/card-demo.component').then(c => c.CardDemoComponent),
+          },
+        ],
       },
-      // {
-      //   path: 'a',
-      //   loadComponent: () => import('../../features/page-a/page-a.component').then((c) => c.PageAComponent)
-      // },
-      // {
-      //   path: 'b',
-      //   loadComponent: () => import('../../features/page-b/page-b.component').then((c) => c.PageBComponent)
-      // },
-      // {
-      //   path: 'c',
-      //   loadComponent: () => import('../../features/page-c/page-c.component').then((c) => c.PageCComponent)
-      // }
-    ]
-  }
-
-
+    ],
+  },
 ];

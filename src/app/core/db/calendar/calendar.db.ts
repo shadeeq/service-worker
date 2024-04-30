@@ -7,7 +7,7 @@ export class CalendarDb extends Dexie {
   constructor() {
     super('Calendar');
     this.version(1).stores({
-      calendar: 'id, title, start, end',
+      calendar: '++id, title, start, end',
     });
     this.open().catch(err => console.log(err.message));
   }

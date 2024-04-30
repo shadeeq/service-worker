@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { AsyncPipe } from "@angular/common";
-import { SidebarComponent } from "../sidebar/sidebar.component";
+import { PanelsComponent } from "../panels/panels.component";
 import { RouterOutlet } from "@angular/router";
 
 @Component({
@@ -8,7 +8,7 @@ import { RouterOutlet } from "@angular/router";
   standalone: true,
   imports: [
     AsyncPipe,
-    SidebarComponent,
+    PanelsComponent,
     RouterOutlet
   ],
   templateUrl: './layout.component.html',

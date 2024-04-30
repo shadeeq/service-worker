@@ -17,13 +17,13 @@ describe('AppComponent', () => {
   it(`should have the 'sidebar-worker' title`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('sidebar-worker');
+    expect(app.title).toEqual('panels-worker');
   });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('h1')?.textContent).toContain('Hello, sidebar-worker');
+    expect(compiled.querySelector('h1')?.textContent).toContain('Hello, panels-worker');
   });
 });

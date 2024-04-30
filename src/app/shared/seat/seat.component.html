@@ -1,0 +1,7 @@
+<div class="seat m-4" [ngClass]="seat.seatType.toLowerCase()" (click)="onClick(seat)">
+  @if (seat.seatType !== SeatTypeEnum.NO_SEAT) {
+    <span>
+      {{ seat.row + ' ' + seat.column }}
+    </span>
+  }
+</div>

@@ -6,18 +6,18 @@ import { CreateComponentDirective } from "../../core/directives/create-component
 import { from } from "rxjs";
 
 @Component({
-  selector: 'app-sidebar',
+  selector: 'app-panels',
   standalone: true,
   imports: [
     AsyncPipe,
     RouterLink,
     CreateComponentDirective
   ],
-  templateUrl: './sidebar.component.html',
-  styleUrl: './sidebar.component.scss',
+  templateUrl: './panels.component.html',
+  styleUrl: './panels.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class SidebarComponent {
+export class PanelsComponent {
   menuItems$ = from(this.panelsService.getAll());
 
   constructor(private readonly panelsService: PanelsService) {}

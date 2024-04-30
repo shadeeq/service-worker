@@ -1,19 +1,24 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { SidebarComponent } from "../sidebar/sidebar.component";
+import { PanelsComponent } from "../panels/panels.component";
 import { AsyncPipe } from "@angular/common";
 import {
   CardComponent,
 } from "../../shared/card/card.component";
 import { FullCalendarComponent } from "../../shared/full-calendar/full-calendar.component";
+import { SeatMapComponent } from "../../shared/seat-map/seat-map.component";
+import { RouterLink, RouterOutlet } from "@angular/router";
 
 @Component({
   selector: 'app-main',
   standalone: true,
   imports: [
-    SidebarComponent,
+    PanelsComponent,
     AsyncPipe,
     CardComponent,
     FullCalendarComponent,
+    SeatMapComponent,
+    RouterLink,
+    RouterOutlet,
   ],
   templateUrl: './main.component.html',
   styleUrl: './main.component.scss',
@@ -21,6 +26,5 @@ import { FullCalendarComponent } from "../../shared/full-calendar/full-calendar.
 })
 export class MainComponent {
   version = '6.1.12';
-  panelTitle = 'Information panel title';
-  icon = ' list_alt';
+  demoPages = ['panels', 'calendar', 'card'];
 }

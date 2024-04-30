@@ -10,5 +10,5 @@ import { LayoutComponent } from "./features/layout/layout.component";
   styleUrl: './app.component.css'
 })
 export class AppComponent  {
-  title = 'sidebar-worker';
+  title = 'panels-worker';
 }

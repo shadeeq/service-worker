@@ -1,0 +1,12 @@
+@for (row of seatMap; track row.id) {
+  <div class="d-flex">
+    @for (seat of row.row; track seat) {
+     <app-seat
+       [seat]="seat"
+       (onSeatClick)="onSeatClick($event)"
+     ></app-seat>
+    }
+  </div>
+}
+
+

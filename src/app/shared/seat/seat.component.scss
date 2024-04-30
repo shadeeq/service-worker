@@ -1,0 +1,27 @@
+.seat {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  border: 1px solid blue;
+  color: blue;
+  border-radius: 2px;
+
+  &.no_seat {
+    border: unset;
+    min-width: 100px;
+    pointer-events: none;
+  }
+
+  &.extra_leg_room {
+    border-color: purple;
+    color: purple;
+  }
+
+  &.standard {
+    border-color: grey;
+    color: grey;
+  }
+}

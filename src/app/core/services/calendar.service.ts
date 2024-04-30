@@ -9,32 +9,27 @@ import { liveQuery } from 'dexie';
 })
 export class CalendarService {
 
-  calendarEventId = 0
   todayStr = new Date().toISOString().replace(/T.*$/, '')
 
   calendarEvents: EventInput[] = [
     {
-      id: this.createEventId(),
+      id: '1',
       title: 'All-day event',
       start: this.todayStr
     },
     {
-      id: this.createEventId(),
+      id: '2',
       title: 'Timed event',
       start: this.todayStr + 'T00:00:00',
       end: this.todayStr + 'T03:00:00'
     },
     {
-      id: this.createEventId(),
+      id: '3',
       title: 'Timed event',
       start: this.todayStr + 'T12:00:00',
       end: this.todayStr + 'T15:00:00'
     }
   ];
-
-  createEventId(): string {
-    return String(this.calendarEventId++);
-  }
 
   constructor() {
     this.fetchEvents();
@@ -42,7 +37,7 @@ export class CalendarService {
 
   fetchEvents() {
     of(this.calendarEvents).subscribe(events=> {
-      calendarDb.calendar.bulkPut(events)
+      calendarDb.calendar.bulkPut(events);
     });
   }
 
@@ -57,7 +52,7 @@ export class CalendarService {
   }
 
   deleteCalendarEvent(eventId: string){
-    calendarDb.calendar.delete(eventId)
+    calendarDb.calendar.delete(eventId);
   }
 
 }
