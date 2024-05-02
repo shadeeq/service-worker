@@ -1,0 +1,52 @@
+.dialog-container{
+  box-sizing: border-box;
+  padding: 40px;
+  width: 600px;
+
+  mat-form-field{
+    width: 98%;
+  }
+
+  .time-container{
+    display: flex;
+    align-items: center;
+
+    .time-forms-container{
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      mat-form-field{
+        width: 49%;
+      }
+    }
+
+    mat-icon{
+      height: 40px;
+      width: 40px;
+    }
+
+
+  }
+
+  .time-toggle-container{
+    cursor: pointer;
+    mat-icon{
+      height: 40px;
+      margin-right: 10px;
+    }
+
+  }
+
+  .footer-container{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+
+    button{
+      margin-left: 20px;
+    }
+
+  }
+
+}

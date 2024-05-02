@@ -4,6 +4,10 @@ $spacer: 1rem;
   display: flex;
 }
 
+.align-center{
+  align-items: center;
+}
+
 .mr {
   margin-right: $spacer !important;
 }

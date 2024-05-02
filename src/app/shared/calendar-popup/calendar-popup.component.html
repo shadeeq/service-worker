@@ -1,0 +1,65 @@
+<div class="dialog-container">
+  <div>
+    <form [formGroup]="eventForm">
+
+      <mat-form-field [appearance]="'outline'">
+        <mat-label>Title</mat-label>
+        <input matInput [formControlName]="'title'"/>
+      </mat-form-field>
+
+      @if(showTimeSelect){
+        <div class="time-container">
+         <mat-icon (click)="toggleTimeSelect(false)">schedule</mat-icon>
+
+      <div class="time-forms-container">
+        <mat-form-field appearance="outline">
+          <mat-label>Start Time</mat-label>
+          <mat-select
+            formControlName="eventStartTime"
+            (selectionChange)="updateEndTimeOptions($event.value)"
+            #startTimeSelect>
+             @for(time of startTimeOptions; track time){
+              <mat-option [value]="time">{{ time }}</mat-option>
+              }
+          </mat-select>
+         </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>End Time</mat-label>
+          <mat-select formControlName="eventEndTime">
+            @for(time of endTimeOptions; track time){
+             <mat-option [value]="time">{{ time }}</mat-option>
+              }
+          </mat-select>
+        </mat-form-field>
+        </div>
+
+       </div>
+      } @else {
+        <div class="d-flex align-center time-toggle-container" (click)="toggleTimeSelect(true)">
+           <mat-icon>schedule</mat-icon>
+           <p>Add time</p>
+        </div>
+      }
+
+
+
+      <mat-form-field appearance="outline">
+        <mat-label>Task status</mat-label>
+        <mat-select formControlName="status">
+          @for(status of eventStatusOptions; track status) {
+           <mat-option [value]="getStatusValue(status)">
+            {{ status }}
+           </mat-option>
+          }
+        </mat-select>
+      </mat-form-field>
+
+      <mat-checkbox formControlName="allDay">Full day</mat-checkbox>
+    </form>
+  </div>
+  <div class="footer-container">
+    <button mat-button (click)="onCancel()">Cancel</button>
+    <button mat-button [disabled]="eventForm.invalid" (click)="onOk()">OK</button>
+  </div>
+</div>
