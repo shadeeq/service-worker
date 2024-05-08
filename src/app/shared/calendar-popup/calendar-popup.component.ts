@@ -10,6 +10,7 @@ import { CommonModule } from '@angular/common';
 import { MatIconModule } from '@angular/material/icon';
 import { EventStatus } from '../full-calendar/full-calendar.component';
 import { MatCheckboxModule } from '@angular/material/checkbox';
+import { EventInput } from "@fullcalendar/core";
 
 @Component({
   selector: 'app-calendar-popup',
@@ -32,17 +33,17 @@ export class CalendarPopupComponent implements OnInit{
 
   showTimeSelect: boolean = false
   startTimeOptions: string[] = [
-    '12:00 AM', '12:30 AM', '01:00 AM', '01:30 AM', '02:00 AM', '02:30 AM',
-    '03:00 AM', '03:30 AM', '04:00 AM', '04:30 AM', '05:00 AM', '05:30 AM',
-    '06:00 AM', '06:30 AM', '07:00 AM', '07:30 AM', '08:00 AM', '08:30 AM',
-    '09:00 AM', '09:30 AM', '10:00 AM', '10:30 AM', '11:00 AM', '11:30 AM',
-    '12:00 PM', '12:30 PM', '01:00 PM', '01:30 PM', '02:00 PM', '02:30 PM',
-    '03:00 PM', '03:30 PM', '04:00 PM', '04:30 PM', '05:00 PM', '05:30 PM',
-    '06:00 PM', '06:30 PM', '07:00 PM', '07:30 PM', '08:00 PM', '08:30 PM',
-    '09:00 PM', '09:30 PM', '10:00 PM', '10:30 PM', '11:00 PM', '11:30 PM',
+    '00:00', '00:30', '01:00', '01:30', '02:00', '02:30',
+    '03:00', '03:30', '04:00', '04:30', '05:00', '05:30',
+    '06:00', '06:30', '07:00', '07:30', '08:00', '08:30',
+    '09:00', '09:30', '10:00', '10:30', '11:00', '11:30',
+    '12:00', '12:30', '13:00', '13:30', '14:00', '14:30',
+    '15:00', '15:30', '16:00', '16:30', '17:00', '17:30',
+    '18:00', '18:30', '19:00', '19:30', '20:00', '20:30',
+    '21:00', '21:30', '22:00', '22:30', '23:00', '23:30',
   ];
   endTimeOptions: string[] = []
-
+  statusDisabled: boolean = false
   eventForm: FormGroup = this.formBuilder.group({
     id: [new Date().getTime().toString()],
     title: [null, [Validators.required]],
@@ -51,23 +52,24 @@ export class CalendarPopupComponent implements OnInit{
     end: [null],
     eventStartTime: [null],
     eventEndTime: [null],
-    status: [null],
-    allDay: [false]
+    allDay: [false],
+    className: [''],
+    display: ['list-item'],
+    backgroundColor: [null]
   })
-  
-  eventStatus = EventStatus
-  eventStatusOptions = Object.keys(EventStatus).map((key:any) =>EventStatus[key]).filter(value => typeof value === 'string') as string[];
+
+  eventStatusOptions = Object.keys(EventStatus).map(
+    (key:any) => EventStatus[key]).filter(
+      value => typeof value === 'string') as string[];
 
   constructor(
-    public dialogRef: MatDialogRef<CalendarPopupComponent>,
-    @Inject(MAT_DIALOG_DATA) public calendarEvent: any,
+    public dialogRef: MatDialogRef<CalendarPopupComponent, EventInput>,
+    @Inject(MAT_DIALOG_DATA) public calendarEvent: EventInput,
     private readonly formBuilder: FormBuilder,
-  ) {
-
-  }
+  ) {}
 
   ngOnInit(){
-    this.eventForm.patchValue(this.calendarEvent)
+    this.eventForm.patchValue(this.calendarEvent);
   }
 
   onCancel(){
@@ -77,10 +79,6 @@ export class CalendarPopupComponent implements OnInit{
   onOk(){
     const values = this.eventForm.getRawValue()
     this.dialogRef.close(values)
-  }
-
-  getStatusValue(key: string): number {
-    return EventStatus[key as keyof typeof EventStatus];
   }
 
   toggleTimeSelect(showTime: boolean){
@@ -112,7 +110,7 @@ export class CalendarPopupComponent implements OnInit{
 
     this.startTimeOptions.forEach((time, index) => {
       const [hourMinutes, ampm] = time.split(' ');
-      const [hour, minutes] = hourMinutes.split(':').map(Number); // Parse hour and minutes as numbers
+      const [hour, minutes] = hourMinutes.split(':').map(Number);
       const adjustedHour = ampm === 'PM' && hour !== 12 ? hour + 12 : hour;
       const timestamp = adjustedHour * 60 + minutes;
       const difference = Math.abs(timestamp - currentTimestamp);
@@ -123,7 +121,6 @@ export class CalendarPopupComponent implements OnInit{
     });
     const startTime = this.eventForm.get('eventStartTime')
     setTimeout(() => {
-      console.log(closestStartTimeIndex, startTime)
       this.startTimeSelect.open()
       this.startTimeSelect.value = this.startTimeOptions[closestStartTimeIndex];
       startTime?.patchValue(this.startTimeOptions[closestStartTimeIndex])
@@ -141,4 +138,14 @@ export class CalendarPopupComponent implements OnInit{
     }
   }
 
+  addClassName(event:boolean){
+    if (event) {
+      this.statusDisabled = true
+      this.eventForm.get('className')?.patchValue('full-day')
+      this.eventForm.get('display')?.patchValue('background')
+      this.eventForm.get('backgroundColor')?.patchValue('yellow')
+    } else {
+      this.statusDisabled = false
+    }
+  }
 }

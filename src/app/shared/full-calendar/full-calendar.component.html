@@ -3,8 +3,15 @@
     @if (calendarOptions$ | async; as calendarOptions) {
       <full-calendar [options]="calendarOptions">
         <ng-template #eventContent let-arg>
-          <b>{{ arg.timeText }}</b>
-          <i>{{ arg.event.title }}</i>
+          <div class="p-2 event-item" [class]="arg.event.classNames.join(' ')">
+            @if (arg.event.extendedProps.eventStartTime && arg.event.extendedProps.eventEndTime){
+              <div class="event-item-time">
+                <span>{{ arg.event.extendedProps.eventStartTime + '-' + arg.event.extendedProps.eventEndTime}}</span>
+                <mat-icon>cloud_download</mat-icon>
+              </div>
+            }
+           <i>{{ arg.event.title }}</i>
+          </div>
         </ng-template>
       </full-calendar>
     }

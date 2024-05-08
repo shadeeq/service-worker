@@ -7,7 +7,7 @@
         <input matInput [formControlName]="'title'"/>
       </mat-form-field>
 
-      @if(showTimeSelect){
+      @if(showTimeSelect) {
         <div class="time-container">
          <mat-icon (click)="toggleTimeSelect(false)">schedule</mat-icon>
 
@@ -42,22 +42,21 @@
         </div>
       }
 
-
-
       <mat-form-field appearance="outline">
         <mat-label>Task status</mat-label>
-        <mat-select formControlName="status">
+        <mat-select formControlName="className" [disabled]="statusDisabled">
           @for(status of eventStatusOptions; track status) {
-           <mat-option [value]="getStatusValue(status)">
+           <mat-option [value]="status.toLowerCase()">
             {{ status }}
            </mat-option>
           }
         </mat-select>
       </mat-form-field>
 
-      <mat-checkbox formControlName="allDay">Full day</mat-checkbox>
+      <mat-checkbox formControlName="allDay" (change)="addClassName($event.checked)">Full day</mat-checkbox>
     </form>
   </div>
+
   <div class="footer-container">
     <button mat-button (click)="onCancel()">Cancel</button>
     <button mat-button [disabled]="eventForm.invalid" (click)="onOk()">OK</button>

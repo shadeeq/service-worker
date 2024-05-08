@@ -26,5 +26,5 @@ import { RouterLink, RouterOutlet } from "@angular/router";
 })
 export class MainComponent {
   version = '6.1.12';
-  demoPages = ['panels', 'calendar', 'card'];
+  demoPages = ['panels', 'calendar', 'card', 'seatmap'];
 }
