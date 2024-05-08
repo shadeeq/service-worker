@@ -78,7 +78,21 @@ export class CalendarPopupComponent implements OnInit{
 
   onOk(){
     const values = this.eventForm.getRawValue()
+    this.updateDates(values)
     this.dialogRef.close(values)
+  }
+
+  updateDates(values: any){
+    const start = values.start
+      + 'T'
+      + (values.eventStartTime ? values.eventStartTime + ':00' : '00:00:00')
+
+    const end = values.end
+      + 'T'
+      + (values.eventEndTime ? values.eventEndTime + ':00' : '00:00:00')
+
+    values.start = start
+    values.end = end
   }
 
   toggleTimeSelect(showTime: boolean){
